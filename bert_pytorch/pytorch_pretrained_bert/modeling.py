@@ -997,8 +997,8 @@ class BertForSequenceCapsuleClassification_meta(BertPreTrainedModel):
         self.dropout = nn.Dropout(config.hidden_dropout_prob)
         # ---
 
-        self.capsule_layer = capsule_network.CapsuleLayer(1, output_dim=num_labels, input_atoms=768, output_atoms=output_atoms, num_routing=1, leaky=True)
-        self.capsule_classification = capsule_network.CapsuleClassification()
+        self.capsule_layer = capsnet.CapsuleLayer(1, output_dim=num_labels, input_atoms=768, output_atoms=output_atoms, num_routing=1, leaky=True)
+        self.capsule_classification = capsnet.CapsuleClassification()
 
         self.lr_a = lr_a
 
@@ -1066,11 +1066,11 @@ class BertForSequenceCapsuleClassification(BertPreTrainedModel):
         self.dropout = nn.Dropout(config.hidden_dropout_prob)
         # ---
         if meta_weights is None:
-            self.capsule_layer = capsule_network.CapsuleLayer(1, output_dim=num_labels, input_atoms=768, output_atoms=output_atoms, num_routing=1, leaky=True)
+            self.capsule_layer = capsnet.CapsuleLayer(1, output_dim=num_labels, input_atoms=768, output_atoms=output_atoms, num_routing=1, leaky=True)
         else:
-            self.capsule_layer = capsule_network.CapsuleLayer(1, output_dim=num_labels, input_atoms=768,
+            self.capsule_layer = capsnet.CapsuleLayer(1, output_dim=num_labels, input_atoms=768,
                                                               output_atoms=output_atoms, paras=meta_weights, num_routing=1, leaky=True)
-        self.capsule_classification = capsule_network.CapsuleClassification()
+        self.capsule_classification = capsnet.CapsuleClassification()
 
         self.apply(self.init_bert_weights)
 
