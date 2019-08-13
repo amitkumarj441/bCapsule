@@ -50,4 +50,4 @@ def getTasks(f, size=32, n=5, k=3):
     return tasks
     
     
-getTasks('train.json', size=1)
+getTasks('data/train.json', size=1)

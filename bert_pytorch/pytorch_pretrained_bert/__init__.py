@@ -8,7 +8,7 @@ from .modeling import (BertConfig, BertModel, BertForPreTraining,
                        BertForMaskedLM, BertForNextSentencePrediction,
                        BertForSequenceClassification, BertForMultipleChoice,
                        BertForTokenClassification, BertForQuestionAnswering,
-                       load_tf_weights_in_bert)
+                       load_tf_weights_in_bert,BertPreTrainedModel)
 from .modeling_openai import (OpenAIGPTConfig, OpenAIGPTModel,
                               OpenAIGPTLMHeadModel, OpenAIGPTDoubleHeadsModel,
                               load_tf_weights_in_openai_gpt)
