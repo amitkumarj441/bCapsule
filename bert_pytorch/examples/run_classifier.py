@@ -400,7 +400,7 @@ def main():
         raise ValueError("Task not found: %s" % (task_name))
 
     # prepare data
-    from data.sampling import getTasks
+    from data.specs import getTasks
     tokenizer = BertTokenizer.from_pretrained(args.bert_model, do_lower_case=args.do_lower_case)
 
 
